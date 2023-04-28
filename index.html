@@ -12,13 +12,10 @@
       href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
+    <!-- Daiyui cdn link for custom component -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.51.6/dist/full.css" rel="stylesheet" type="text/css" />
     <!-- Tailwind css link -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Flowbite cdn link for custom component -->
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.css"
-      rel="stylesheet"
-    />
     <!-- Tailwind default styles configuration -->
     <script>
       tailwind.config = {
@@ -59,59 +56,8 @@
     <main class="p-12">
       <!-- cards grid section-->
       <section class="grid grid-cols-1 sm:grid-cols-3 gap-8">
-        <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow">
-          <img
-            class="rounded-t-lg"
-            src="https://img.olhardigital.com.br/wp-content/uploads/2023/01/chatgpt_assistente.jpg"
-            alt=""
-          />
-
-          <div class="p-5 mb-1">
-            <h5 class="mb-3 text-2xl font-bold tracking-tight text-gray-900">
-              Features
-            </h5>
-
-            <ol class="text-grayCustom">
-              <li>Natural language processing</li>
-              <li>Contextual understanding</li>
-              <li>Text generation</li>
-            </ol>
-          </div>
-
-          <hr class="w-11/12 mx-auto" />
-
-          <div class="flex justify-between items-center px-3 py-3">
-            <div>
-              <h5 class="mb-3 text-2xl font-bold tracking-tight text-gray-900">
-                ChatGPT
-              </h5>
-              <p>11/01/2022</p>
-            </div>
-            <div>
-              <button
-                data-modal-target="defaultModal"
-                data-modal-toggle="defaultModal"
-                type="button"
-                class="text-red-700 border border-red-700 hover:bg-red-700 hover:text-white focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="w-5 h-5"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg>
-                <!-- <span class="sr-only">Icon description</span> -->
-              </button>
-            </div>
-          </div>
-        </div>
+        <!-- Cards -->
+        
       </section>
     </main>
     <!-- main section area ends -->
@@ -119,124 +65,10 @@
     <!-- Modal Area starts -->
 
     <!-- Main modal -->
-    <div
-      id="defaultModal"
-      tabindex="-1"
-      aria-hidden="true"
-      class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] md:h-full"
-    >
-      <div class="relative w-full h-full max-w-2xl md:h-auto">
-        <!-- Modal content -->
-        <div class="relative bg-white rounded-lg shadow">
-          <!-- Modal header -->
-          <div class="flex items-start justify-between p-4 rounded-t">
-            <button
-              type="button"
-              class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center"
-              data-modal-hide="defaultModal"
-            >
-              <svg
-                aria-hidden="true"
-                class="w-5 h-5"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-              <!-- <span class="sr-only">Close modal</span> -->
-            </button>
-          </div>
-          <!-- Modal body -->
-          <div class="p-6 space-y-6 flex gap-8">
-            <!-- right side -->
-            <div class="bg-red-300">
-              <!-- description -->
-              <div>
-                <h2 class="font-semibold text-2xl text-blackCustom">
-                  ChatGPT is an AI-powered chatbot platform that uses OpenAI's
-                  GPT technology to simulate human conversation.
-                </h2>
-              </div>
-              <!-- pricing -->
-              <div class="flex gap-3 mx-auto">
-                <div class="p-6 rounded-lg bg-white">
-                  <h2 class="font-bold text-base text-greenCustom">
-                    $10/month Basic
-                  </h2>
-                </div>
-                <div class="p-6 rounded-lg bg-white">
-                  <h2 class="font-bold text-base text-yellowCustom">
-                    $50/month Pro
-                  </h2>
-                </div>
-                <div class="p-6 rounded-lg bg-white">
-                  <h2 class="font-bold text-base text-redCustom">
-                    Contact us Enterprise
-                  </h2>
-                </div>
-              </div>
-
-              <!-- features -->
-              <div class="flex gap-3">
-                <div>
-                  <h1 class="text-base font-bold text-black">Features</h1>
-                  <ul>
-                    <li>Customizable responses</li>
-                    <li>Multilingual support</li>
-                    <li>Seamless integration</li>
-                  </ul>
-                </div>
-                <div>
-                  <h1 class="text-base font-bold text-black">Integration</h1>
-                  <ul>
-                    <li>FB Messenger</li>
-                    <li>Slack</li>
-                    <li>Telegram</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <!-- left side -->
-
-            <div
-              class="max-w-sm bg-white border border-gray-200 rounded-lg shadow"
-            >
-              <img
-                class="rounded-t-lg"
-                src="https://img.olhardigital.com.br/wp-content/uploads/2023/01/chatgpt_assistente.jpg"
-                alt=""
-              />
-
-              <div class="p-5 mb-1">
-                <h5
-                  class="mb-3 text-2xl font-bold tracking-tight text-gray-900"
-                >
-                  Hi, how are you doing today?
-                </h5>
-
-                <ol class="text-grayCustom">
-                  <li>Natural language processing</li>
-                  <li>Contextual understanding</li>
-                  <li>Text generation</li>
-                </ol>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    
     <!-- Modal Area ends -->
 
     <!-- custom javascript file -->
     <script src="js/app.js"></script>
-
-    <!-- Flowbite Javascript File -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"></script>
   </body>
 </html>
