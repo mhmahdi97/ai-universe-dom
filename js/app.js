@@ -23,9 +23,11 @@ const displayItems = (items) => {
           <div class="card-body">
             <h2 class="card-title font-bold">Features</h2>
             <!-- Features list here -->
-            <p>${item.features[0]}</p>
-            <p>${item.features[1]}</p>
-            <p>${item.features[2]}</p>
+             <ol class="list-decimal ml-5">
+              <li>${item.features[0]}</li>
+              <li>${item.features[1]}</li>
+              <li>${item.features[2]}</li>
+            </ol>
             <hr class="border"/>
 
             <h1 class="text-xl font-bold">"${item.name}"</h1>
