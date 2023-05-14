@@ -12,6 +12,8 @@
       href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
+    <!-- Font awsome cdn link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Daiyui cdn link for custom component -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@2.51.6/dist/full.css" rel="stylesheet" type="text/css" />
     <!-- Tailwind css link -->
@@ -55,9 +57,43 @@
     <!-- main section area starts -->
     <main class="p-12">
       <!-- cards grid section-->
-      <section class="grid grid-cols-1 sm:grid-cols-3 gap-8">
+      <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 sm:grid-cols-3 gap-4 lg:px-12 my-6">
         <!-- Cards -->
-        
+        <div class="card w-full bg-base-100 shadow-xl">
+          <figure>
+            <img class="w-full" src="https://img.olhardigital.com.br/wp-content/uploads/2023/01/chatgpt_assistente.jpg" alt="" />
+          </figure>
+          <div class="card-body">
+            <h2 class="card-title font-bold">Features</h2>
+            <!-- Features list here -->
+            <p>If a dog chews shoes whose shoes does he choose?</p>
+            <hr class="border"/>
+
+            <h1 class="text-xl font-bold">ChatGPT</h1>
+            <div class="flex justify-between">  
+              <div class="flex">
+                <span class="mr-1">              
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z" />
+                  </svg>
+                </span>
+                <p>11/01/2022</p>
+  
+              </div>
+              <div>
+                <span>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
+                  </svg>
+                </span>
+              </div>
+            </div>
+
+            <!-- <div class="card-actions justify-end">
+            <button class="btn btn-primary">Buy Now</button>
+            </div> -->
+          </div>
+        </div>
       </section>
     </main>
     <!-- main section area ends -->
