@@ -1,5 +1,7 @@
 // fetching data from server
 const loadItems = async () => {
+  // start spinner before data load
+  toggleSpinner(true);
   const url = `https://openapi.programming-hero.com/api/ai/tools`;
   const res = await fetch(url);
   const data = await res.json();
@@ -8,9 +10,10 @@ const loadItems = async () => {
 
 const displayItems = (items) => {
   console.log(items);
+  
 
   const itemsContainer = document.getElementById("cards-container");
-  itemsContainer.textContent = "";
+  
 
   items.forEach((item) => {
     const itemDiv = document.createElement("div");
@@ -56,7 +59,20 @@ const displayItems = (items) => {
          `;
     itemsContainer.appendChild(itemDiv);
   });
+  // stop spinner after data load
+  toggleSpinner(false);
   
+};
+
+
+// function for showing spinner
+const toggleSpinner = (isLoading) => {
+  const spinnerSection = document.getElementById("spinner");
+  if (isLoading) {
+    spinnerSection.classList.remove("hidden");
+  } else {
+    spinnerSection.classList.add("hidden");
+  }
 };
 
 
