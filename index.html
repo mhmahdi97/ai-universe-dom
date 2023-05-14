@@ -80,12 +80,12 @@
                 <p>11/01/2022</p>
   
               </div>
-              <div>
-                <span>
+              <div class="bg-red-200 rounded-full p-3 cursor-pointer">
+                <label for="my-modal-5" class="text-[#EB5757]">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
                   </svg>
-                </span>
+                </label>
               </div>
             </div>
 
@@ -100,7 +100,16 @@
 
     <!-- Modal Area starts -->
 
-    <!-- Main modal -->
+    <input type="checkbox" id="my-modal-5" class="modal-toggle" />
+    <div class="modal">
+      <div class="modal-box w-11/12 max-w-5xl">
+        <h3 class="font-bold text-lg">Congratulations random Internet user!</h3>
+        <p class="py-4">You've been selected for a chance to get one year of subscription to use Wikipedia for free!</p>
+        <div class="modal-action">
+          <label for="my-modal-5" class="btn">Yay!</label>
+        </div>
+      </div>
+    </div>
     
     <!-- Modal Area ends -->
 
