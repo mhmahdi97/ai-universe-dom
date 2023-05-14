@@ -1,20 +1,32 @@
 // fetching data from server
-const loadItems = async () => {
+const loadItems = async (dataLimit) => {
   // start spinner before data load
   toggleSpinner(true);
   const url = `https://openapi.programming-hero.com/api/ai/tools`;
   const res = await fetch(url);
   const data = await res.json();
-  displayItems(data.data.tools);
+  displayItems(data.data.tools, dataLimit);
 };
 
-const displayItems = (items) => {
+
+
+const displayItems = (items, dataLimit) => {
   console.log(items);
   
-
   const itemsContainer = document.getElementById("cards-container");
   
+  // display 6 items only
+  
+  const showAll = document.getElementById("show-all");
+  
+  if (items.length > 6) {
+    items = items.slice(0, 6);
+    showAll.classList.remove("hidden");
+  } else {
+    showAll.classList.add("hidden");
+  }
 
+  
   items.forEach((item) => {
     const itemDiv = document.createElement("div");
     
@@ -63,6 +75,14 @@ const displayItems = (items) => {
   toggleSpinner(false);
   
 };
+
+
+const btnShowAll = document.getElementById("btn-show-all")
+btnShowAll.addEventListener("click", function () {
+    // toggleSpinner(true);
+    // displayItems();
+  })
+
 
 
 // function for showing spinner
