@@ -165,7 +165,7 @@ const displayItemDetails = item => {
            
           <div class="w-2/5 rounded-xl border-2 p-6">
             <div class="w-full relative mb-6">
-              <img class="w-full rounded-xl h-64" src="https://www.datanami.com/wp-content/uploads/2023/01/chat_gpt_shutterstock_Ebru-Omer.jpg" alt="Album"/>
+              <img class="w-full rounded-xl h-64" src="${item.image_link[0]}"/>
               <span class="py-1 mt-1 mr-1 w-28 text-white text-center font-semibold bg-red-500 rounded-lg absolute right-0 top-0">94% accuracy</span>
             </div>
             <h1 class="text-2xl font-bold text-center mb-4" > ${item && item.input_output_examples && item.input_output_examples[0] && item.input_output_examples[0].input? item.input_output_examples[0].input : 'How are you doing today?'}</h1>
