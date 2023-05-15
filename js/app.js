@@ -26,7 +26,7 @@ const displayItems = (items, dataLimit) => {
     showAll.classList.add("hidden");
   }
 
-  
+  // showing items cards
   items.forEach((item) => {
     const itemDiv = document.createElement("div");
     
@@ -106,13 +106,11 @@ const loadItemDetails = async (id) => {
   const res = await fetch(url);
   const data = await res.json();
   displayItemDetails(data.data);
-  console.log(id);
-
 };
 
 const displayItemDetails = item => {
-  console.log(item.description)
-
+  
+  // dynamicaly add modal details
   const itemDetails = document.getElementById("item-details")
 
   itemDetails.innerHTML = `
@@ -181,15 +179,16 @@ const displayItemDetails = item => {
       
       </div>
   `
+
+  // create and append element for showing accuracy data
   const imgContainer = document.getElementById("img-container");
   const accuracy = document.createElement("span");
-  accuracy.classList.add("py-1", "mt-1", "mr-1", "w-28", "text-white", "text-center", "font-semibold", "bg-red-500", "rounded-lg", "absolute", "right-0", "top-0");
-  accuracy.innerText = '94% accuracy' 
-  imgContainer.appendChild(accuracy);
-
-
-
-
+  accuracy.classList.add("py-1", "mt-1", "mr-1", "w-29", "text-white", "text-center", "font-semibold", "bg-red-500", "rounded-lg", "absolute", "right-0", "top-0");
+  accuracy.innerText = `${item.accuracy.score*100}% accuracy` 
+  // if there is no accuracy data then the ui doesnt show accuracy badge
+  if (item.accuracy.score) {
+    imgContainer.appendChild(accuracy);
+  }
 
 }
 
