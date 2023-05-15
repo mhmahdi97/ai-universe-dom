@@ -125,13 +125,13 @@ const displayItemDetails = item => {
 
             <div class=" mb-6">
               <span class="rounded-lg bg-slate-300 font-bold p-2 mr-2">
-                ${item.pricing[0].price !== '0' ? item.pricing[0].price : "Free of Cost"}
+                ${item && item.pricing && item.pricing[0].price !== '0' ? item.pricing[0].price : "Free of Cost"}
               </span>
               <span class="rounded-lg bg-slate-300 font-bold p-2 mr-2">
-                ${item.pricing[1].price !== '0' ? item.pricing[1].price : "Free of Cost"}
+                ${item && item.pricing && item.pricing[1].price !== '0' ? item.pricing[1].price : "Free of Cost"}
               </span>
               <span class="rounded-lg bg-slate-300 font-bold p-2 mr-2">
-                ${item.pricing[2].price !== '0' ? item.pricing[2].price : "Free of Cost"}
+                ${item && item.pricing && item.pricing[2].price !== '0' ? item.pricing[2].price : "Free of Cost"}
               </span>
             </div>
               
@@ -150,11 +150,11 @@ const displayItemDetails = item => {
               <div>
                 <h2 class="text-3xl font-bold mb-4">Integrations</h2>
                 <ul class="list-decimal ml-4">
-                  <li>${item?.integrations[0] ? item.integrations[0] : 'No data found'}</li>
-                  <li>${item?.integrations[1] ? item.integrations[1] : 'No data found'}</li>
-                  <li>${item?.integrations[2] ? item.integrations[2] : 'No data found'}</li>
-                  <li>${item?.integrations[3] ? item.integrations[3] : 'No data found'}</li>
-                  <li>${item?.integrations[4] ? item.integrations[4] : 'No data found'}</li>
+                  <li>${item && item.integrations && item.integrations[0] ? item.integrations[0] : 'No data found'}</li>
+                  <li>${item && item.integrations && item.integrations[1] ? item.integrations[1] : 'No data found'}</li>
+                  <li>${item && item.integrations && item.integrations[2] ? item.integrations[2] : 'No data found'}</li>
+                  <li>${item && item.integrations && item.integrations[3] ? item.integrations[3] : 'No data found'}</li>
+                  <li>${item && item.integrations && item.integrations[4] ? item.integrations[4] : 'No data found'}</li>
 
                 </ul>
               </div>
@@ -168,8 +168,8 @@ const displayItemDetails = item => {
               <img class="w-full rounded-xl h-64" src="https://www.datanami.com/wp-content/uploads/2023/01/chat_gpt_shutterstock_Ebru-Omer.jpg" alt="Album"/>
               <span class="py-1 mt-1 mr-1 w-28 text-white text-center font-semibold bg-red-500 rounded-lg absolute right-0 top-0">94% accuracy</span>
             </div>
-            <h1 class="text-2xl font-bold text-center mb-4" >Hi, how are you doing today?</h1>
-            <p class="text-center">I'm doing well, thank you for asking. How can I assist you today?</p>
+            <h1 class="text-2xl font-bold text-center mb-4" > ${item && item.input_output_examples && item.input_output_examples[0] && item.input_output_examples[0].input? item.input_output_examples[0].input : 'How are you doing today?'}</h1>
+            <p class="text-center">${item && item.input_output_examples && item.input_output_examples[0] && item.input_output_examples[0].output ? item.input_output_examples[0].output: 'No! not Yet! Take a Break!!'}</p>
           </div>
         
         </div>
