@@ -79,7 +79,7 @@ const displayItems = (items, dataLimit) => {
 
 const btnShowAll = document.getElementById("show-all")
 btnShowAll.addEventListener("click", function () {
-    // toggleSpinner(true);
+    toggleSpinner(true);
     loadItems();
     console.log('button clicked')
   })
