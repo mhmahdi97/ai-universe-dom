@@ -19,7 +19,7 @@ const displayItems = (items, dataLimit) => {
   
   const showAll = document.getElementById("show-all");
   
-  if (items.length > 6) {
+  if (dataLimit && items.length > 6) {
     items = items.slice(0, 6);
     showAll.classList.remove("hidden");
   } else {
@@ -77,10 +77,11 @@ const displayItems = (items, dataLimit) => {
 };
 
 
-const btnShowAll = document.getElementById("btn-show-all")
+const btnShowAll = document.getElementById("show-all")
 btnShowAll.addEventListener("click", function () {
     // toggleSpinner(true);
-    // displayItems();
+    loadItems();
+    console.log('button clicked')
   })
 
 
@@ -96,4 +97,4 @@ const toggleSpinner = (isLoading) => {
 };
 
 
-loadItems();
+loadItems(6);
