@@ -112,25 +112,79 @@ const loadItemDetails = async (id) => {
 const displayItemDetails = item => {
   console.log(item.description)
 
-  // add dynamically modal description
-  const modalDescription = document.getElementById("modal-description");
-  modalDescription.innerText = item.description;
+  const itemDetails = document.getElementById("item-details")
+
+  itemDetails.innerHTML = `
   
-  // add dynamically pricing details
-  const pricing_0 = document.getElementById("pricing-0");
-  pricing_0.innerText = item.pricing[0].price !== '0' ? item.pricing[0].price : "Free of Cost";
+      <div class="modal-box w-11/12 max-w-5xl ">
+        
+        <div class="card lg:card-side bg-base-100">
+         
+          <div class="card-body w-2/5 rounded-xl border-2 border-error mr-3 bg-red-50">
+            <h2 class="card-title mb-6">${item.description}</h2>
 
-  const pricing_1 = document.getElementById("pricing-1");
-  pricing_1.innerText = item.pricing[1].price !== '0' ? item.pricing[1].price : "Free of Cost";
+            <div class=" mb-6">
+              <span class="rounded-lg bg-slate-300 font-bold p-2 mr-2">
+                ${item.pricing[0].price !== '0' ? item.pricing[0].price : "Free of Cost"}
+              </span>
+              <span class="rounded-lg bg-slate-300 font-bold p-2 mr-2">
+                ${item.pricing[1].price !== '0' ? item.pricing[1].price : "Free of Cost"}
+              </span>
+              <span class="rounded-lg bg-slate-300 font-bold p-2 mr-2">
+                ${item.pricing[2].price !== '0' ? item.pricing[2].price : "Free of Cost"}
+              </span>
+            </div>
+              
 
-  const pricing_2 = document.getElementById("pricing-2");
-  pricing_2.innerText = item.pricing[2].price !== '0' ? item.pricing[2].price : "Free of Cost";
+            <div class="flex justify-between">
+              <div>
+                <h2 class="text-3xl font-bold mb-4">Features</h2>
+                <ul class="list-decimal ml-4">
+                  <li>${item.features[1].feature_name}</li>
+                  <li>${item.features[2].feature_name}</li>
+                  <li>${item.features[3].feature_name}</li>
+                  <li>${item.features[4]?.feature_name ? item.features[4].feature_name : 'features unavailable'}</li>
+                 
+                </ul>
+              </div>
+              <div>
+                <h2 class="text-3xl font-bold mb-4">Integrations</h2>
+                <ul class="list-decimal ml-4">
+                  <li>${item?.integrations[0] ? item.integrations[0] : 'No data found'}</li>
+                  <li>${item?.integrations[1] ? item.integrations[1] : 'No data found'}</li>
+                  <li>${item?.integrations[2] ? item.integrations[2] : 'No data found'}</li>
+                  <li>${item?.integrations[3] ? item.integrations[3] : 'No data found'}</li>
+                  <li>${item?.integrations[4] ? item.integrations[4] : 'No data found'}</li>
+
+                </ul>
+              </div>
+            </div>
+
+
+          </div>
+           
+          <div class="w-2/5 rounded-xl border-2 p-6">
+            <div class="w-full relative mb-6">
+              <img class="w-full rounded-xl h-64" src="https://www.datanami.com/wp-content/uploads/2023/01/chat_gpt_shutterstock_Ebru-Omer.jpg" alt="Album"/>
+              <span class="py-1 mt-1 mr-1 w-28 text-white text-center font-semibold bg-red-500 rounded-lg absolute right-0 top-0">94% accuracy</span>
+            </div>
+            <h1 class="text-2xl font-bold text-center mb-4" >Hi, how are you doing today?</h1>
+            <p class="text-center">I'm doing well, thank you for asking. How can I assist you today?</p>
+          </div>
+        
+        </div>
+        
+        <div class="modal-action">
+          <label for="my-modal-5" class="btn">Close!</label>
+        </div>
+      
+      </div>
+  `
+
+
 
 
 
 
 }
 
-
-
-loadItemDetails();
