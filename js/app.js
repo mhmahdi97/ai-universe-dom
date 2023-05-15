@@ -112,8 +112,19 @@ const loadItemDetails = async (id) => {
 const displayItemDetails = item => {
   console.log(item.description)
 
+  // add dynamically modal description
   const modalDescription = document.getElementById("modal-description");
   modalDescription.innerText = item.description;
+  
+  // add dynamically pricing details
+  const pricing_0 = document.getElementById("pricing-0");
+  pricing_0.innerText = item.pricing[0].price !== '0' ? item.pricing[0].price : "Free of Cost";
+
+  const pricing_1 = document.getElementById("pricing-1");
+  pricing_1.innerText = item.pricing[1].price !== '0' ? item.pricing[1].price : "Free of Cost";
+
+  const pricing_2 = document.getElementById("pricing-2");
+  pricing_2.innerText = item.pricing[2].price !== '0' ? item.pricing[2].price : "Free of Cost";
 
 
 
