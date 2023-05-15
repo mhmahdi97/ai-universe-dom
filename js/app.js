@@ -1,11 +1,29 @@
+// global variable for sort by date
+let sortByDate = false;
 // fetching data from server
 const loadItems = async (dataLimit) => {
   // start spinner before data load
   toggleSpinner(true);
   const url = `https://openapi.programming-hero.com/api/ai/tools`;
   const res = await fetch(url);
-  const data = await res.json();
-  displayItems(data.data.tools, dataLimit);
+  const loadedData = await res.json();
+  let itemsData = loadedData.data.tools;
+  if (sortByDate) {
+    itemsData = itemsData.sort((x, y) => {
+      x = new Date(x.published_in)
+      y = new Date(y.published_in)
+      return y - x
+    }) 
+  }
+  else if (!sortByDate) {
+    itemsData = itemsData.sort((x, y) => {
+      x = new Date(x.published_in)
+      y = new Date(y.published_in)
+      return x - y
+    }) 
+  }
+
+  displayItems(itemsData, dataLimit);
 };
 
 
@@ -57,7 +75,7 @@ const displayItems = (items, dataLimit) => {
   
               </div>
               <div onclick="loadItemDetails('${item.id}')" class="bg-red-200 rounded-full p-3 cursor-pointer">
-                <label class="cursor-pointer" for="my-modal-5" class="text-[#EB5757]">
+                <label for="my-modal-5" class="text-[#EB5757] cursor-pointer">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
                   </svg>
@@ -76,13 +94,42 @@ const displayItems = (items, dataLimit) => {
   
 };
 
+const fetchData = async () => {
+  const url = `https://openapi.programming-hero.com/api/ai/tools`;
+  const res = await fetch(url);
+  const loadedData = await res.json();
+  const itemsData = loadedData.data.tools;
+  return itemsData;
+}
 
+const fetchSortedData = async () => {
+  const url = `https://openapi.programming-hero.com/api/ai/tools`;
+  const res = await fetch(url);
+  const loadedData = await res.json();
+  const itemsData = loadedData.data.tools;
+  const itemsDataSorted = itemsData.sort((x, y) => {
+    x = new Date(x.published_in)
+    y = new Date(y.published_in)
+    return y - x
+}) 
+return itemsDataSorted;
+}
+
+
+// event handler for show all button
 const btnShowAll = document.getElementById("show-all")
 btnShowAll.addEventListener("click", function () {
     toggleSpinner(true);
     loadItems();
-    console.log('button clicked')
   })
+
+// event handler for sort by date button
+
+const sortBtn = document.getElementById("sort-btn");
+sortBtn.addEventListener('click', function () {
+  sortByDate = !sortByDate;
+  loadItems(6);
+})
 
 
 
