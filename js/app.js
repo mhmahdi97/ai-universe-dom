@@ -11,7 +11,6 @@ const loadItems = async (dataLimit) => {
 
 
 const displayItems = (items, dataLimit) => {
-  console.log(items);
   
   const itemsContainer = document.getElementById("cards-container");
   
@@ -56,8 +55,8 @@ const displayItems = (items, dataLimit) => {
                 <p>${item.published_in}</p>
   
               </div>
-              <div class="bg-red-200 rounded-full p-3 cursor-pointer">
-                <label for="my-modal-5" class="text-[#EB5757]">
+              <div onclick="loadItemDetails('${item.id}')" class="bg-red-200 rounded-full p-3 cursor-pointer">
+                <label class="cursor-pointer" for="my-modal-5" class="text-[#EB5757]">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
                   </svg>
@@ -98,3 +97,29 @@ const toggleSpinner = (isLoading) => {
 
 
 loadItems(6);
+
+
+// load item details for moadal
+const loadItemDetails = async (id) => {
+  const url = `https://openapi.programming-hero.com/api/ai/tool/${id}`;
+  const res = await fetch(url);
+  const data = await res.json();
+  displayItemDetails(data.data);
+  console.log(id);
+
+};
+
+const displayItemDetails = item => {
+  console.log(item.description)
+
+  const modalDescription = document.getElementById("modal-description");
+  modalDescription.innerText = item.description;
+
+
+
+
+}
+
+
+
+loadItemDetails();
