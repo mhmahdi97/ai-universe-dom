@@ -13,6 +13,7 @@ const loadItems = async (dataLimit) => {
 const displayItems = (items, dataLimit) => {
   
   const itemsContainer = document.getElementById("cards-container");
+  itemsContainer.textContent = "";
   
   // display 6 items only
   
@@ -164,9 +165,9 @@ const displayItemDetails = item => {
           </div>
            
           <div class="w-2/5 rounded-xl border-2 p-6">
-            <div class="w-full relative mb-6">
+            <div id="img-container" class="w-full relative mb-6">
               <img class="w-full rounded-xl h-64" src="${item.image_link[0]}"/>
-              <span class="py-1 mt-1 mr-1 w-28 text-white text-center font-semibold bg-red-500 rounded-lg absolute right-0 top-0">94% accuracy</span>
+              
             </div>
             <h1 class="text-2xl font-bold text-center mb-4" > ${item && item.input_output_examples && item.input_output_examples[0] && item.input_output_examples[0].input? item.input_output_examples[0].input : 'How are you doing today?'}</h1>
             <p class="text-center">${item && item.input_output_examples && item.input_output_examples[0] && item.input_output_examples[0].output ? item.input_output_examples[0].output: 'No! not Yet! Take a Break!!'}</p>
@@ -180,7 +181,11 @@ const displayItemDetails = item => {
       
       </div>
   `
-
+  const imgContainer = document.getElementById("img-container");
+  const accuracy = document.createElement("span");
+  accuracy.classList.add("py-1", "mt-1", "mr-1", "w-28", "text-white", "text-center", "font-semibold", "bg-red-500", "rounded-lg", "absolute", "right-0", "top-0");
+  accuracy.innerText = '94% accuracy' 
+  imgContainer.appendChild(accuracy);
 
 
 
