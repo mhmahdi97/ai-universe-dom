@@ -94,27 +94,6 @@ const displayItems = (items, dataLimit) => {
   
 };
 
-const fetchData = async () => {
-  const url = `https://openapi.programming-hero.com/api/ai/tools`;
-  const res = await fetch(url);
-  const loadedData = await res.json();
-  const itemsData = loadedData.data.tools;
-  return itemsData;
-}
-
-const fetchSortedData = async () => {
-  const url = `https://openapi.programming-hero.com/api/ai/tools`;
-  const res = await fetch(url);
-  const loadedData = await res.json();
-  const itemsData = loadedData.data.tools;
-  const itemsDataSorted = itemsData.sort((x, y) => {
-    x = new Date(x.published_in)
-    y = new Date(y.published_in)
-    return y - x
-}) 
-return itemsDataSorted;
-}
-
 
 // event handler for show all button
 const btnShowAll = document.getElementById("show-all")
